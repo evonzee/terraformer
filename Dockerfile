@@ -5,6 +5,7 @@ RUN git clone https://github.com/GoogleCloudPlatform/terraformer /source/terrafo
 RUN cd /source/terraformer && go mod download && go build -v
 
 FROM alpine
+ENV HOME=/home
 WORKDIR /app
 COPY --from=tformbuild /source/terraformer/terraformer /bin/
 
